@@ -1,0 +1,38 @@
+<header ng-switch on="$location.path().indexOf('/Products/new') > -1">
+    <h3 ng-switch-when="true">Create a new Product</h3>
+    <h3 ng-switch-when="false">View or edit Product</h3>
+</header>
+<form id="ProductForm" name="ProductForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': ProductForm.Name.$invalid}">
+        <label for="Name" class="col-sm-2 control-label">Name</label>
+        <div id="NameControls" class="col-sm-10">
+            <input id="Name" name="Name" type="text" class="form-control" ng-model="product.Name" placeholder="Enter the Product Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ProductForm.Price.$invalid}">
+        <label for="Price" class="col-sm-2 control-label">Price</label>
+        <div id="PriceControls" class="col-sm-10">
+            <input id="Price" name="Price" type="text" class="form-control" ng-model="product.Price" placeholder="Enter the Product Price"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ProductForm.Description.$invalid}">
+        <label for="Description" class="col-sm-2 control-label">Description</label>
+        <div id="DescriptionControls" class="col-sm-10">
+            <input id="Description" name="Description" type="text" ng-maxlength="2550" class="form-control" ng-model="product.Description" placeholder="Enter the Product Description"></input>
+            <span class="help-block error" ng-show="ProductForm.Description.$error.maxlength">maximum length is 2550</span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveProduct" name="saveProduct" class="btn btn-primary" ng-disabled="isClean() || ProductForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteProduct" name="deleteProduct" class="btn btn-danger" ng-show="product.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

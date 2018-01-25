@@ -1,0 +1,39 @@
+<header ng-switch on="$location.path().indexOf('/customers/new') > -1">
+    <h3 ng-switch-when="true">Create a new customer</h3>
+    <h3 ng-switch-when="false">View or edit customer</h3>
+</header>
+<form id="customerForm" name="customerForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': customerForm.custname.$invalid}">
+        <label for="custname" class="col-sm-2 control-label">Custname</label>
+        <div id="custnameControls" class="col-sm-10">
+            <input id="custname" name="custname" type="text" class="form-control" ng-model="customer.custname" placeholder="Enter the customer Custname"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': customerForm.address.$invalid}">
+        <label for="address" class="col-sm-2 control-label">Address</label>
+        <div id="addressControls" class="col-sm-10">
+            <input id="address" name="address" type="text" class="form-control" ng-model="customer.address" placeholder="Enter the customer Address"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': customerForm.orderid.$invalid}">
+        <label for="orderid" class="col-sm-2 control-label">Orderid</label>
+        <div id="orderidControls" class="col-sm-10">
+            <select id="orderid" name="orderid" multiple class="form-control" ng-model="orderidSelection" ng-options="o.text for o in orderidSelectionList">
+                <option value="">Choose a Orderid</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="savecustomer" name="savecustomer" class="btn btn-primary" ng-disabled="isClean() || customerForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deletecustomer" name="deletecustomer" class="btn btn-danger" ng-show="customer.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>
