@@ -13,6 +13,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.furnace>2.25.4.Final</version.furnace>
   </properties>
   <dependencies>
     <dependency>
@@ -45,6 +46,34 @@
       <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.jboss.forge.furnace.container</groupId>
+      <artifactId>cdi</artifactId>
+      <classifier>forge-addon</classifier>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.forge.furnace.test</groupId>
+      <artifactId>furnace-test-harness</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.forge.furnace.test</groupId>
+      <artifactId>arquillian-furnace-classpath</artifactId>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+	  <groupId>org.testng</groupId>
+	  <artifactId>testng</artifactId>
+	  <version>6.10</version>
+	  <scope>test</scope>
+	</dependency>
+	<dependency>
+      <groupId>org.jboss.forge.addon</groupId>
+      <artifactId>git</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
   </dependencies>
   <dependencyManagement>
     <dependencies>
@@ -60,6 +89,31 @@
         <artifactId>jsr250-api</artifactId>
         <version>1.0</version>
         <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.forge.furnace.container</groupId>
+        <artifactId>cdi</artifactId>
+        <version>2.25.4.Final</version>
+        <classifier>forge-addon</classifier>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.forge.furnace.test</groupId>
+        <artifactId>furnace-test-harness</artifactId>
+        <version>2.25.4.Final</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.forge.furnace.test</groupId>
+        <artifactId>arquillian-furnace-classpath</artifactId>
+        <version>2.25.4.Final</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.forge.addon</groupId>
+        <artifactId>git</artifactId>
+        <version>3.6.1.Final</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
